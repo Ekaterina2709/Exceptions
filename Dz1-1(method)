@@ -1,0 +1,21 @@
+function method1() {
+   // Вывод ошибки
+   throw new Error('Что-то пошло не так!');
+ }
+ 
+ function method2() {
+   // Выводим сообщение с кодом ошибки
+   const exception = { message: "Исключение", code: 123 };
+   throw exception;
+ }
+ 
+ function method3() {
+   // Выводим ошибку недопустимый тип
+   throw new TypeError('Недопустимый тип!');
+ }
+ 
+ function calculateDifference(arr1, arr2) {
+   if (arr1.length !== arr2.length) {
+     // Ошибка при разной длине массивов
+     throw new RangeError('Массывы имеют разную длину!');
+   }
