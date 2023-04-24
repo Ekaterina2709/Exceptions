@@ -1,21 +1,31 @@
-function method1() {
-   // Вывод ошибки
-   throw new Error('Что-то пошло не так!');
- }
- 
- function method2() {
-   // Выводим сообщение с кодом ошибки
-   const exception = { message: "Исключение", code: 123 };
-   throw exception;
- }
- 
- function method3() {
-   // Выводим ошибку недопустимый тип
-   throw new TypeError('Недопустимый тип!');
- }
- 
- function calculateDifference(arr1, arr2) {
-   if (arr1.length !== arr2.length) {
-     // Ошибка при разной длине массивов
-     throw new RangeError('Массывы имеют разную длину!');
-   }
+//Реализуйте 3 метода, чтобы в каждом из них получить разные исключения
+
+public class Task1 {
+    public static void main(String[] args) {
+        String[] sArray = {"first str", null, "third str"};
+        int[] array = {1,2,3,4,5,6,7,8,9,10,11,12};
+        division(10, 0);
+        printValueByIndex(array,12);
+        printStringArray(sArray);
+
+    }
+    // Деление на ноль
+    public static void division(double firstNum, double secondNum){
+        if(secondNum == 0) throw new ArithmeticException("На ноль делить нельзя!!!");
+        double result = firstNum/secondNum;
+        System.out.printf("Результат деления %f на %f равен %f.\n", firstNum, secondNum, result);
+    }
+    // выход за пределы
+    public static void printValueByIndex(int[] array, int index){
+        if(index > array.length-1) throw new ArrayIndexOutOfBoundsException("Элемента под таким индексом не существует");
+        else System.out.printf("Элемент с индексом %d равен %d.\n",index, array[index]);
+    }
+
+    // Отсутсвие элемента
+    public static void printStringArray(String[] sArray){
+        for (String item: sArray){
+            if(item == null) throw new NullPointerException("Элемент отсутствует!!!");
+            System.out.println(item);
+        }
+    }
+}
